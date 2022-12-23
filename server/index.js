@@ -52,10 +52,10 @@ mongoose
   .then(() => {
     app.listen(PORT, () => console.log(`Server running on Port ${PORT}`));
 
+    // ProductStat.insertMany(dataProductStat);
     // OverallStat.insertMany(dataOverallStat);
     // User.insertMany(dataUser);
     // Product.insertMany(dataProduct);
-    // ProductStat.insertMany(dataProductStat);
     // Transaction.insertMany(dataTransaction);
   })
   .catch((err) => console.log(`${err} failed to connect`));
