@@ -1,18 +1,10 @@
 import React, { useState } from "react";
-import {
-  Box,
-  useTheme,
-  FormControl,
-  MenuItem,
-  InputLabel,
-  Select,
-} from "@mui/material";
+import { Box, FormControl, MenuItem, InputLabel, Select } from "@mui/material";
 import Header from "../../components/Header";
-// import OverviewChart from "../../components/OverviewChart";
+import OverviewChart from "../../components/OverviewCharts";
 
 const SalesOverview = () => {
   const [view, setView] = useState("units");
-  const theme = useTheme();
 
   return (
     <Box m="1.5rem 2.5rem">
@@ -32,7 +24,7 @@ const SalesOverview = () => {
             <MenuItem value="units">Units</MenuItem>
           </Select>
         </FormControl>
-        {/* <OverviewChart view={view} /> */}
+        <OverviewChart view={view} />
       </Box>
     </Box>
   );
