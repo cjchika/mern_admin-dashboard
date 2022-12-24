@@ -19,6 +19,7 @@ import { useGetDashboardQuery } from "../../state/api";
 import { DataGrid } from "@mui/x-data-grid";
 import BreakdownChart from "../../components/BreakdownChart";
 import OverviewCharts from "../../components/OverviewCharts";
+import StartBox from "../../components/StatBox";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -58,10 +59,34 @@ const Dashboard = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header
-        title="DASHBOARD"
-        subTitle="You have the power to make things happen."
-      />
+      <FlexBetween>
+        <Header title="DASHBOARD" subTitle="Welcome to your dashboard." />
+        <Box>
+          <Button
+            sx={{
+              backgroundColor: theme.palette.secondary.light,
+              color: theme.palette.background.alt,
+              fontSize: "14px",
+              fontWeight: "bold",
+              padding: "10px 20px",
+            }}
+          >
+            {" "}
+            <DownloadOutlined sx={{ mr: "10px" }} />
+            Download Reports
+          </Button>
+        </Box>
+      </FlexBetween>
+      <Box
+        mt="20px"
+        display="grid"
+        gridTemplateColumns="repeat(12, 1fr)"
+        gridAutoRows="160px"
+        gap="20px"
+        sx={{
+          "& > div": { gridColumn: isNonMediumScreens ? undefined : "span 12" },
+        }}
+      ></Box>
     </Box>
   );
 };
