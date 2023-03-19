@@ -45,7 +45,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           <FlexBetween
             backgroundColor={theme.palette.background.alt}
             borderRadius="9px"
-            gap="3rem"
+            gap="1rem"
             p="0.1rem 1.5rem"
           >
             <InputBase placeholder="Search..." />
@@ -55,7 +55,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           </FlexBetween>
         </FlexBetween>
         {/* RIGHT SIDE */}
-        <FlexBetween gap="1.5rem">
+        <FlexBetween gap="1rem">
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkModeOutlined sx={{ fontSize: "25px" }} />
@@ -87,7 +87,12 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
-              <Box textAlign="left">
+              <Box
+                textAlign="left"
+                sx={{
+                  display: { xs: "none", md: "block" },
+                }}
+              >
                 <Typography
                   fontWeight="bold"
                   fontSize="0.85rem"

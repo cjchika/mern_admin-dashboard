@@ -59,7 +59,15 @@ const Dashboard = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <FlexBetween>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: { xs: "left", md: "center" },
+          flexDirection: { xs: "column", md: "row" },
+          gap: { xs: "1rem", md: 0 },
+        }}
+      >
         <Header title="DASHBOARD" subTitle="Welcome to your dashboard" />
 
         <Box>
@@ -76,7 +84,7 @@ const Dashboard = () => {
             Download Reports
           </Button>
         </Box>
-      </FlexBetween>
+      </Box>
 
       <Box
         mt="20px"

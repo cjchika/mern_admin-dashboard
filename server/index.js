@@ -11,20 +11,20 @@ import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";
 
 // DATA IMPORTS
-import User from "./models/User.js";
-import Product from "./models/Product.js";
-import ProductStat from "./models/ProductStat.js";
-import Transaction from "./models/Transaction.js";
-import OverallStat from "./models/OverallStat.js";
-import AffiliateStat from "./models/AffiliateStat.js";
-import {
-  dataUser,
-  dataProduct,
-  dataProductStat,
-  dataTransaction,
-  dataOverallStat,
-  dataAffiliateStat,
-} from "./data/index.js";
+// import User from "./models/User.js";
+// import Product from "./models/Product.js";
+// import ProductStat from "./models/ProductStat.js";
+// import Transaction from "./models/Transaction.js";
+// import OverallStat from "./models/OverallStat.js";
+// import AffiliateStat from "./models/AffiliateStat.js";
+// import {
+//   dataUser,
+//   dataProduct,
+//   dataProductStat,
+//   dataTransaction,
+//   dataOverallStat,
+//   dataAffiliateStat,
+// } from "./data/index.js";
 
 /* CONFIGURATION */
 dotenv.config();
@@ -47,10 +47,14 @@ app.use("/sales", salesRoutes);
 const PORT = process.env.PORT || 5000;
 mongoose.set("strictQuery", true);
 mongoose
-  .connect(process.env.MONGO_CONNECT, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    process.env.MONGO_CONNECT ||
+      "mongodb+srv://themancj:qoxbngz94vi1Ftdt@admin-dashboard.pb4ixfh.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     app.listen(PORT, () => console.log(`Server running on Port ${PORT}`));
 
